@@ -1,0 +1,133 @@
+body {
+  background: #f0f2da;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.66666;
+  color: #141721;
+  margin: 0;
+}
+.container {
+  max-width: 1440px;
+  width: 100%;
+  padding: 32px 44px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.header {
+  background: #141721;
+  padding: 0px 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.header-r {
+  display: inline-flex;
+}
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #ffffff;
+  overflow: hidden;
+}
+.box-content {
+  padding: 16px 24px 24px;
+}
+.box img {
+  height: 100%;
+  object-fit: contain;
+}
+.box.collection {
+  position: relative;
+  padding: 30px;
+}
+.collection {
+  padding: 16px;
+  gap: 16px;
+}
+.br {
+  border-radius: 12px;
+}
+.text-center {
+  text-align: center;
+}
+h1 {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  color: #f0f2da;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+button {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  padding: 9px 20px;
+  background: #78dce8;
+  border-radius: 6px;
+  animation-name: bounceOut;
+  animation-duration: 50s;
+  box-shadow: none;
+  border: none;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+button:hover {
+  animation-name: bounceIn;
+  animation-duration: 50s;
+}
+.btn-connect-wrapper {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.btn-connect-wrapper button {
+  width: fit-content;
+}
+.btn-connect-wrapper .error {
+  color: red;
+  font-size: 12px;
+}
+.builders {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  color: #f9ff73;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.3s;
+}
+.builders:hover {
+  color: #141721;
+  background-color: #f9ff73;
+}
+
+@media (min-width: 767px) {
+  .container {
+    padding: 32px 88px;
+  }
+  .header-l {
+    max-width: 404px;
+    margin-right: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .box.collection {
+    padding-top: 60px;
+  }
+}
+

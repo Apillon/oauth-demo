@@ -5,7 +5,7 @@ const getAuthToken = async () => {
     method: 'GET'
   });
   const { data } = await response.json();
-  return data.session;
+  return data.sessionToken;
 }
 
 async function openOAuthPopup() {
@@ -22,18 +22,19 @@ window.addEventListener('message', async event => {
   if (!event.data.verified) {
     return console.error('Invalid verification');
   }
-  const oauthAuthToken = event.data.data.userData;
-  // Close OAuth window
+  // Close OAuth popup window
   oAuthWindow?.close();
 
-  verifyUserLogin(oauthAuthToken);
+  verifyUserLogin(event.data.authToken);
 }, false);
 
-async function verifyUserLogin(oauthAuthToken) {
+async function verifyUserLogin(oAuthToken) {
   const response = await fetch(`http://localhost:3000/verify-login`, {
     method: 'POST',
-    body: JSON.stringify({ token: oauthAuthToken })
+    body: JSON.stringify({ token: oAuthToken }),
+    headers: new Headers({ 'Content-Type': 'application/json' })
   });
-  const data = await response.json();
-  // Handle user data response
+  const { data } = await response.json();
+  // Handle user email data response here
+  console.log({ email: data.email });
 }

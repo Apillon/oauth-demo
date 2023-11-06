@@ -17,7 +17,7 @@ app.get('/session-token', async (req, res) => {
 
 app.post('/verify-login', async (req, res) => {
   const token = req.body.token;
-  const response = await apillonAuthAPI.get(`/verify-login?token=${token}`);
+  const response = await apillonAuthAPI.post(`/verify-login`, { token });
   res.json(response.data);
 })
 

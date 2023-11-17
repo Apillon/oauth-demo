@@ -20,7 +20,7 @@ async function openOAuthPopup() {
 window.addEventListener('message', async event => {
   if (!event.origin?.includes('apillon.io')) return;
   if (!event.data.verified) {
-    return console.error('Invalid verification');
+    throw new Error('Invalid verification');
   }
   // Close OAuth popup window
   oAuthWindow?.close();
@@ -37,4 +37,5 @@ async function verifyUserLogin(oAuthToken) {
   const { data } = await response.json();
   // Handle user email data response here
   console.log({ email: data.email });
+  document.getElementById('email').innerHTML = `Success! Email: ${data.email}`;
 }
